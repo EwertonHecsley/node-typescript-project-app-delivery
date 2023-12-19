@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  api-solid-mySql:
+    container_name: app-delivery
+    image: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=docker
+      - MYSQL_DATABASE=delivery
+      - MYSQL_PASSWORD=docker
