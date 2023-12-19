@@ -9,3 +9,37 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
+model Deliveryman {
+  id         Int          @id @default(autoincrement())
+  username   String       @unique
+  password   String
+  Deliveries Deliveries[]
+
+  @@map("deliverymans")
+}
+
+model Clients {
+  id         Int          @id @default(autoincrement())
+  username   String       @unique
+  password   String
+  Deliveries Deliveries[]
+
+  @@map("clients")
+}
+
+model Deliveries {
+  id        Int    @id @default(autoincrement())
+  item_name String
+
+  client    Clients @relation(fields: [client_id], references: [id])
+  client_id Int
+
+  deliveryman    Deliveryman @relation(fields: [deliveryman_id], references: [id])
+  deliveryman_id Int
+
+  created_at DateTime @default(now())
+  end_at     DateTime @default(now())
+
+  @@map("deliveries")
+}
