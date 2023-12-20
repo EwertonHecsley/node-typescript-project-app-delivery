@@ -1,7 +1,7 @@
 import express from 'express';
+import 'express-async-errors';
 import rota from './routes';
 import { httpErrorMiddleware } from './middleware/http.error.middleware';
-import 'express-async-errors';
 
 const app = express();
 
