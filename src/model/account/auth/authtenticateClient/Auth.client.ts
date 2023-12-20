@@ -1,8 +1,8 @@
 import 'dotenv/config';
-import prisma from "../../../dataBase/PrismaCliente";
+import prisma from "../../../../dataBase/PrismaCliente";
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import { HttpException } from '../../../middleware/HttpException';
+import { HttpException } from '../../../../middleware/HttpException';
 
 interface IAuthtenticateCliente {
     username: string
