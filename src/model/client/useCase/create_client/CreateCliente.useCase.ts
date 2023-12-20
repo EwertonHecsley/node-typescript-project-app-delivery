@@ -1,5 +1,6 @@
 import prisma from "../../../../dataBase/PrismaCliente";
 import bcrypt from 'bcrypt';
+import { HttpException } from "../../../../middleware/HttpException";
 
 interface CreateCliente {
     username: string
@@ -14,7 +15,7 @@ export class CreateClienteUseCase {
             }
         });
 
-        if (clientExist) throw new Error('Cliente alredy exists');
+        if (clientExist) throw new HttpException(400, 'Cliente alredy exists');
 
         const hashPassword = await bcrypt.hash(password, 8);
 
