@@ -1,6 +1,6 @@
-import prisma from "../../../../../dataBase/PrismaCliente";
+import prisma from "../../../../dataBase/PrismaCliente";
 import bcrypt from 'bcrypt';
-import { HttpException } from "../../../../../middleware/HttpException";
+import { HttpException } from "../../../../middleware/HttpException";
 
 interface IDeliveryMan {
     username: string
