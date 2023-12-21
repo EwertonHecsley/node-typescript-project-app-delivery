@@ -35,11 +35,11 @@ model Deliveries {
   client    Clients @relation(fields: [client_id], references: [id])
   client_id Int
 
-  deliveryman    Deliveryman @relation(fields: [deliveryman_id], references: [id])
-  deliveryman_id Int
+  deliveryman    Deliveryman? @relation(fields: [deliveryman_id], references: [id])
+  deliveryman_id Int?
 
-  created_at DateTime @default(now())
-  end_at     DateTime @default(now())
+  created_at DateTime  @default(now())
+  end_at     DateTime? @default(now())
 
   @@map("deliveries")
 }
